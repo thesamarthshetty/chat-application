@@ -1,0 +1,12 @@
+.unread {
+    font-weight: bold;
+  }
+  
+  .blue-dot {
+    display: inline-block;
+    margin-left: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 50%;
+  }
