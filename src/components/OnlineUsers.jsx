@@ -9,9 +9,6 @@ function OnlineUsers({ currentUser, onSelectUser }) {
     const [offlineUsers, setOfflineUsers] = useState([]);
     const [unreadCounts, setUnreadCounts] = useState({});
 
-    //console.log('unreadCounts',unreadCounts['TPSfs5WNeYTZYPLlECfAfmRMX8E3'],onlineUsers,unreadCounts)
-    onlineUsers.map(x=>console.log('unreadCounts--->',unreadCounts[x.userId],x.userId,unreadCounts))
-
     //used useEffect hooks to monitor changes in user status in real-time
     useEffect(() => {
         const usersRef = ref(database, 'users');
@@ -70,7 +67,6 @@ function OnlineUsers({ currentUser, onSelectUser }) {
                     <ListGroup.Item key={user.userId} onClick={() => onSelectUser(user)}
                     style={{ backgroundColor: unreadCounts[user.userId] ? '#f8d7da' : 'transparent' }}>
                         {user.name || 'Anonymous'}
-                        {/* {unreadCounts[user.userId] > 0 && <Badge bg="primary" className="ms-2">●</Badge>} */}
                     </ListGroup.Item>
                 ))}
             </ListGroup>
@@ -82,7 +78,6 @@ function OnlineUsers({ currentUser, onSelectUser }) {
                     <ListGroup.Item key={user.userId} onClick={() => onSelectUser(user)}
                         style={{ backgroundColor: unreadCounts[user.userId] > 0 ? '#f8d7da' : 'transparent' }}>
                         {user.name || 'Anonymous'}
-                        {/* {unreadCounts[user.userId] > 0 && <Badge bg="primary" className="ms-2">●</Badge>} */}
                     </ListGroup.Item>
                 ))}
             </ListGroup>
